@@ -1,16 +1,16 @@
 import streamlit as st
 
-# --- ĐOẠN CODE KẾT NỐI PWA (COPY Y HỆT DÒNG NÀY) ---
+# 1. NHÚNG MÃ PWA (PROGRESSIER) ĐỂ CÀI ĐẶT LOGO & TÊN RIÊNG
 st.markdown(
     """
     <script>
-        // 1. Gắn link Manifest từ Progressier
+        // Chèn Manifest
         var link = window.parent.document.createElement('link');
         link.rel = 'manifest';
         link.href = 'https://progressier.app/sZSKNuC3ENZQJWBw45gs/progressier.json';
         window.parent.document.head.appendChild(link);
 
-        // 2. Gắn link Script từ Progressier
+        // Chèn Script
         var script = window.parent.document.createElement('script');
         script.defer = true;
         script.src = 'https://progressier.app/sZSKNuC3ENZQJWBw45gs/script.js';
@@ -20,7 +20,6 @@ st.markdown(
     unsafe_allow_html=True,
 )
 # --- KẾT THÚC ĐOẠN CODE PWA ---
-
 # Sau đó mới đến các phần code cũ của bạn
 st.set_page_config(page_title="CAFORE", layout="centered", initial_sidebar_state="collapsed")
 st.set_page_config(page_title="CAFORE", layout="centered", initial_sidebar_state="collapsed")
