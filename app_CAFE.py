@@ -1,15 +1,16 @@
 import streamlit as st
 
-# CHÈN ĐOẠN NÀY ĐỂ LIÊN KẾT VỚI PROGRESSIER (PWA)
-# Lưu ý: Thay link bên dưới bằng link chính xác trong ảnh của bạn nếu có khác biệt
+# --- ĐOẠN CODE KẾT NỐI PWA (COPY Y HỆT DÒNG NÀY) ---
 st.markdown(
-    f"""
+    """
     <script>
+        // 1. Gắn link Manifest từ Progressier
         var link = window.parent.document.createElement('link');
         link.rel = 'manifest';
         link.href = 'https://progressier.app/sZSKNuC3ENZQJWBw45gs/progressier.json';
         window.parent.document.head.appendChild(link);
 
+        // 2. Gắn link Script từ Progressier
         var script = window.parent.document.createElement('script');
         script.defer = true;
         script.src = 'https://progressier.app/sZSKNuC3ENZQJWBw45gs/script.js';
@@ -18,7 +19,10 @@ st.markdown(
     """,
     unsafe_allow_html=True,
 )
-# Sau đó mới đến st.set_page_config và các phần code cũ của bạn...
+# --- KẾT THÚC ĐOẠN CODE PWA ---
+
+# Sau đó mới đến các phần code cũ của bạn
+st.set_page_config(page_title="CAFORE", layout="centered", initial_sidebar_state="collapsed")
 st.set_page_config(page_title="CAFORE", layout="centered", initial_sidebar_state="collapsed")
 st.set_page_config(
     page_title="CAFORE",
