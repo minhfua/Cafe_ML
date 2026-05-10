@@ -1,5 +1,9 @@
 import streamlit as st
-
+st.set_page_config(
+    page_title="CAFORE",
+    page_icon="logo_quan.png", # Đây là cách đổi icon trên tab trình duyệt
+    layout="centered"
+)
 # 1. Cấu hình & Ẩn Sidebar
 st.set_page_config(page_title="CAFORE", layout="centered", initial_sidebar_state="collapsed")
 
