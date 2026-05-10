@@ -1,4 +1,25 @@
 import streamlit as st
+
+# CHÈN ĐOẠN NÀY ĐỂ LIÊN KẾT VỚI PROGRESSIER (PWA)
+# Lưu ý: Thay link bên dưới bằng link chính xác trong ảnh của bạn nếu có khác biệt
+st.markdown(
+    f"""
+    <script>
+        var link = window.parent.document.createElement('link');
+        link.rel = 'manifest';
+        link.href = 'https://progressier.app/sZSKNuC3ENZQJWBw45gs/progressier.json';
+        window.parent.document.head.appendChild(link);
+
+        var script = window.parent.document.createElement('script');
+        script.defer = true;
+        script.src = 'https://progressier.app/sZSKNuC3ENZQJWBw45gs/script.js';
+        window.parent.document.head.appendChild(script);
+    </script>
+    """,
+    unsafe_allow_html=True,
+)
+# Sau đó mới đến st.set_page_config và các phần code cũ của bạn...
+st.set_page_config(page_title="CAFORE", layout="centered", initial_sidebar_state="collapsed")
 st.set_page_config(
     page_title="CAFORE",
     page_icon="logo_quan.png", # Đây là cách đổi icon trên tab trình duyệt
