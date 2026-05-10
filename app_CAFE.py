@@ -1,20 +1,28 @@
 import streamlit as st
 
-# 1. NHÚNG MÃ PWA (PROGRESSIER) ĐỂ CÀI ĐẶT LOGO & TÊN RIÊNG
+# THAY THẾ ĐOẠN SCRIPT CŨ BẰNG ĐOẠN NÀY
 st.markdown(
     """
     <script>
-        // Chèn Manifest
-        var link = window.parent.document.createElement('link');
-        link.rel = 'manifest';
-        link.href = 'https://progressier.app/sZSKNuC3ENZQJWBw45gs/progressier.json';
-        window.parent.document.head.appendChild(link);
+    function injectPWA() {
+        const head = window.parent.document.head;
+        
+        // Kiểm tra xem đã nhúng chưa để tránh nhúng trùng
+        if (!window.parent.document.getElementById('pwa-manifest')) {
+            var link = window.parent.document.createElement('link');
+            link.id = 'pwa-manifest';
+            link.rel = 'manifest';
+            link.href = 'https://progressier.app/sZSKNuC3ENZQJWBw45gs/progressier.json';
+            head.appendChild(link);
 
-        // Chèn Script
-        var script = window.parent.document.createElement('script');
-        script.defer = true;
-        script.src = 'https://progressier.app/sZSKNuC3ENZQJWBw45gs/script.js';
-        window.parent.document.head.appendChild(script);
+            var script = window.parent.document.createElement('script');
+            script.src = 'https://progressier.app/sZSKNuC3ENZQJWBw45gs/script.js';
+            script.setAttribute('defer', '');
+            head.appendChild(script);
+        }
+    }
+    // Chạy lệnh inject
+    injectPWA();
     </script>
     """,
     unsafe_allow_html=True,
